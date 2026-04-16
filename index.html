@@ -3,99 +3,399 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Company Name</title>
+  <title>Bluedot Reach</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f7f8fb;
+      background: #f4f6fb;
       color: #111827;
       line-height: 1.6;
     }
+
     .container {
-      max-width: 1000px;
+      width: min(1100px, 92%);
       margin: 0 auto;
-      padding: 40px 20px;
     }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #374151;
+      margin-left: 20px;
+      font-size: 15px;
+    }
+
     .hero {
-      background: white;
-      border-radius: 18px;
-      padding: 60px 32px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-      margin-top: 30px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+      padding: 36px 0 24px;
     }
-    h1, h2 {
-      margin-top: 0;
+
+    .hero-card,
+    .info-card,
+    .section,
+    .contact-card {
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
+
+    .hero-card {
+      padding: 48px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #e8eefc;
+      color: #1e3a8a;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.1;
+      margin: 0 0 18px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #4b5563;
+      margin: 0 0 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
     .btn {
       display: inline-block;
-      background: #111827;
-      color: white;
-      padding: 12px 18px;
-      border-radius: 10px;
       text-decoration: none;
-      margin-top: 16px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
     }
+
+    .btn-primary {
+      background: #0f172a;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #eef2ff;
+      color: #1e3a8a;
+    }
+
+    .info-card {
+      padding: 32px;
+      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      min-height: 100%;
+    }
+
+    .info-card h3 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.16);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .sections {
+      padding: 20px 0 50px;
+    }
+
     .section {
-      background: white;
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      padding: 36px;
       margin-top: 24px;
     }
+
+    .section h2 {
+      margin-top: 0;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: #6b7280;
+      margin-bottom: 26px;
+      font-size: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .mini-card {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .mini-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      background: #f8fafc;
+      border-radius: 18px;
+      padding: 24px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .step-number {
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      line-height: 34px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .contact-card {
+      padding: 36px;
+      margin: 30px 0 60px;
+    }
+
     form {
       display: grid;
-      gap: 12px;
+      gap: 14px;
+      margin-top: 20px;
     }
-    input, textarea, button {
-      font: inherit;
-      padding: 12px;
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
       border: 1px solid #d1d5db;
-      border-radius: 10px;
+      font: inherit;
     }
+
     button {
-      background: #111827;
-      color: white;
-      cursor: pointer;
       border: none;
+      background: #0f172a;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
     }
+
     footer {
       text-align: center;
       color: #6b7280;
-      padding: 30px 0 20px;
+      padding: 10px 0 40px;
       font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .grid-3,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .hero-card,
+      .info-card,
+      .section,
+      .contact-card {
+        padding: 28px;
+      }
+
+      .nav-links {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <div class="navbar">
+      <div class="logo">Bluedot Reach</div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
     <div class="hero">
-      <h1>Your Company Name</h1>
-      <p>We help partners scale performance marketing campaigns with transparent communication, fast testing, and clear KPI alignment.</p>
-      <a class="btn" href="#contact">Get in touch</a>
+      <div class="hero-card">
+        <div class="hero-badge">Performance Marketing Partner</div>
+        <h1>Scaling partner growth with clarity, speed, and execution.</h1>
+        <p>
+          Bluedot Reach works with partners on performance-driven campaigns through efficient testing,
+          transparent communication, and scalable campaign operations.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn btn-secondary" href="#services">See what we do</a>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h3>What we focus on</h3>
+        <p>
+          We support partner growth with a practical test-first approach, clear KPI alignment,
+          and ongoing optimization.
+        </p>
+        <div class="tag-list">
+          <div class="tag">Performance Marketing</div>
+          <div class="tag">Partner Growth</div>
+          <div class="tag">Transparent Reporting</div>
+          <div class="tag">Fast Testing</div>
+          <div class="tag">Scalable Operations</div>
+        </div>
+      </div>
     </div>
 
-    <div class="section">
-      <h2>What We Do</h2>
-      <p>We focus on performance-driven traffic solutions and partner growth through efficient testing, transparent reporting, and scalable campaign operations.</p>
+    <div class="sections">
+      <div class="section" id="services">
+        <h2>What We Do</h2>
+        <div class="section-subtitle">
+          A lean and execution-focused approach to helping partners launch, test, and scale.
+        </div>
+        <div class="grid-3">
+          <div class="mini-card">
+            <h3>Campaign Testing</h3>
+            <p>We start with small and controlled tests, then expand based on real performance and fit.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Reporting Alignment</h3>
+            <p>We prioritize transparency, fast feedback loops, and clear performance communication.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Growth Execution</h3>
+            <p>Once KPIs are aligned, we focus on stable scaling and consistent operational follow-through.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="process">
+        <h2>How We Work</h2>
+        <div class="section-subtitle">
+          Our preferred process is simple, efficient, and built for real partnership.
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Align</h3>
+            <p>We discuss traffic fit, campaign needs, and the right testing scope before launch.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Test</h3>
+            <p>We start with a capped pilot to validate quality, reporting, and performance expectations.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Scale</h3>
+            <p>When the data supports it, we grow volume in a controlled and transparent way.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Why Partners Work With Us</h2>
+        <div class="section-subtitle">
+          We value direct communication, practical execution, and long-term working relationships.
+        </div>
+        <div class="grid-3">
+          <div class="mini-card">
+            <h3>Clear Communication</h3>
+            <p>No unnecessary complexity. We focus on responsiveness, transparency, and efficient coordination.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Test-First Mindset</h3>
+            <p>We prefer validating with real data first, then scaling based on what actually works.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Execution Focus</h3>
+            <p>We care about getting campaigns live, keeping operations clean, and improving performance over time.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card" id="contact">
+        <h2>Contact Us</h2>
+        <p>
+          Tell us a bit about your business, traffic, or campaign needs, and we’ll get back to you.
+        </p>
+
+        <form action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="text" name="company" placeholder="Company name" />
+          <input type="email" name="email" placeholder="Email address" required />
+          <input type="text" name="vertical" placeholder="Vertical / traffic type" />
+          <textarea name="message" rows="6" placeholder="Tell us about your needs"></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
 
-    <div class="section">
-      <h2>How We Work</h2>
-      <p>We usually start with a small capped test, align on goals and reporting, then scale based on real performance.</p>
-    </div>
-
-    <div class="section" id="contact">
-      <h2>Contact Us</h2>
-      <form action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
-        <input type="text" name="name" placeholder="Your name" required />
-        <input type="text" name="company" placeholder="Company name" />
-        <input type="email" name="email" placeholder="Email address" required />
-        <input type="text" name="traffic" placeholder="Traffic type / vertical" />
-        <textarea name="message" rows="5" placeholder="Tell us a bit about your needs"></textarea>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <footer>
+      © 2026 Bluedot Reach. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
 
     <footer>
       © 2026 Your Company Name. All rights reserved.
